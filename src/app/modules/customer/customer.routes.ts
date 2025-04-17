@@ -5,5 +5,6 @@ const customerRouter = Router();
 
 // Routing
 customerRouter.post("/customers", CustomerControllers.createCustomer);
+customerRouter.get("/customers", CustomerControllers.getAllCustomers);
 
 export const CustomerRoutes = customerRouter;

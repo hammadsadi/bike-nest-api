@@ -19,6 +19,23 @@ const createCustomer = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+/**
+ * @Method GET
+ * @Desc Get All Customers
+ * @Return Data
+ */
+const getAllCustomers = catchAsync(async (req: Request, res: Response) => {
+  const result = await CustomerServices.getAllCustomersFromDB();
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Customers fetched successfully",
+    data: result,
+  });
+});
+
 export const CustomerControllers = {
   createCustomer,
+  getAllCustomers,
 };
