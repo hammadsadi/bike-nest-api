@@ -1,7 +1,9 @@
+import { ServiceRecordedRoutes } from "./app/modules/service/service.routes";
 import express, { Application, Request, Response } from "express";
 import { CustomerRoutes } from "./app/modules/customer/customer.routes";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 import notFound from "./app/shared/notFound";
+import { BikeRoutes } from "./app/modules/bike/bike.routes";
 
 const app: Application = express();
 
@@ -17,6 +19,8 @@ app.get("/", (req: Request, res: Response) => {
 
 //  Routes
 app.use("/api", CustomerRoutes);
+app.use("/api", BikeRoutes);
+app.use("/api", ServiceRecordedRoutes);
 // Middlewares
 app.use(globalErrorHandler);
 app.use(notFound);
