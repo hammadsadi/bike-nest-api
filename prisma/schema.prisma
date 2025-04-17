@@ -21,6 +21,7 @@ model Customer{
   email String @unique
   phone String 
   createdAt DateTime @default(now())
+  bike Bike[]
 }
 
 // Bike Model
@@ -29,16 +30,19 @@ model Bike {
   brand String
   model String
   year Int
-  customerId
+  customerId String
+  customer Customer @relation(fields: [customerId], references: [customerId])
+  serviceRecord ServiceRecord[]
 }
 
 
 //  ServiceRecord Model
 model ServiceRecord {
   serviceId String @id @default(uuid())
-  bikeId
+  bikeId String
+  bike Bike @relation(fields: [bikeId], references: [bikeId])
   serviceDate DateTime?
-  completionDate DateTime 
+  completionDate DateTime? 
   description String
   status ServiceRecordStatus
 }
