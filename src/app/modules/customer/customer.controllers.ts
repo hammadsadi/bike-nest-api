@@ -35,7 +35,48 @@ const getAllCustomers = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+/**
+ * @Method GET
+ * @Desc Get Single Customer
+ * @Return Data
+ * @Params customerId
+ */
+const getSingleCustomer = catchAsync(async (req: Request, res: Response) => {
+  const result = await CustomerServices.getSingleCustomerFromDB(
+    req.params.customerId
+  );
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Customers fetched successfully",
+    data: result,
+  });
+});
+
+/**
+ * @Method PUT
+ * @Desc Update Single Customer
+ * @Return Data
+ * @Params customerId
+ */
+const updateSingleCustomer = catchAsync(async (req: Request, res: Response) => {
+  const result = await CustomerServices.updateSingleCustomerFromDB(
+    req.params.customerId,
+    req.body
+  );
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Customer updated successfully",
+    data: result,
+  });
+});
+
 export const CustomerControllers = {
   createCustomer,
   getAllCustomers,
+  getSingleCustomer,
+  updateSingleCustomer,
 };

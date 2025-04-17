@@ -15,7 +15,40 @@ const getAllCustomersFromDB = async () => {
   return result;
 };
 
+// Get Single Customer
+const getSingleCustomerFromDB = async (id: string) => {
+  const result = await prisma.customer.findUniqueOrThrow({
+    where: {
+      customerId: id,
+    },
+  });
+  return result;
+};
+
+// Update Single Customer
+const updateSingleCustomerFromDB = async (
+  id: string,
+  payload: Partial<Customer>
+) => {
+  await prisma.customer.findUniqueOrThrow({
+    where: {
+      customerId: id,
+    },
+  });
+
+  //  Update Data
+  const result = await prisma.customer.update({
+    where: {
+      customerId: id,
+    },
+    data: payload,
+  });
+  return result;
+};
+
 export const CustomerServices = {
   customerSaveToDB,
   getAllCustomersFromDB,
+  getSingleCustomerFromDB,
+  updateSingleCustomerFromDB,
 };
