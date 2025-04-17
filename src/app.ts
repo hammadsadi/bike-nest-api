@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from "express";
+import { CustomerRoutes } from "./app/modules/customer/customer.routes";
 
 const app: Application = express();
 
@@ -13,4 +14,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 //  Routes
+app.use("/api", CustomerRoutes);
 export default app;
