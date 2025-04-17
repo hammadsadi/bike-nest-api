@@ -1,9 +1,12 @@
 import { Customer } from "@prisma/client";
+import prisma from "../../shared/prisma";
 
 // Create Customer
 const customerSaveToDB = async (payload: Customer) => {
-  console.log(payload);
-  return payload;
+  const result = await prisma.customer.create({
+    data: payload,
+  });
+  return result;
 };
 
 export const CustomerServices = {
