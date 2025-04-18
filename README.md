@@ -10,11 +10,11 @@ The backend is built with Node.js, Express.js, and Prisma ORM, and uses PostgreS
 
 Click here for the Live Backend Link: [https://medi-mart-ochre.vercel.app](https://medi-mart-ochre.vercel.app)
 
-## 🚀 Project Features - Medi Mart
-
-👥 User Features
+## 🚀 Project Features - BikeNest
 
 1. **Customer Management:** Customer Can Add, View, Update Customer Data.
+2. **Bike Management:** Each customer can create and Get their bikes.
+3. **Service Record Management:** User Can add service, Track service history for each bike and update service records status.
 
 ## 🧑‍💻 Tech Stack
 

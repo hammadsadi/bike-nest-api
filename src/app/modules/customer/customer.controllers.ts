@@ -74,9 +74,29 @@ const updateSingleCustomer = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+/**
+ * @Method DELETE
+ * @Desc Delete Single Customer
+ * @Return Data
+ * @Params customerId
+ */
+const deleteSingleCustomer = catchAsync(async (req: Request, res: Response) => {
+  const result = await CustomerServices.deleteCustomerFromDB(
+    req.params.customerId
+  );
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Customer deleted successfully",
+    data: null,
+  });
+});
+
 export const CustomerControllers = {
   createCustomer,
   getAllCustomers,
   getSingleCustomer,
   updateSingleCustomer,
+  deleteSingleCustomer,
 };

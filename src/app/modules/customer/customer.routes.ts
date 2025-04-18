@@ -15,4 +15,9 @@ customerRouter.put(
   CustomerControllers.updateSingleCustomer
 );
 
+customerRouter.delete(
+  "/customers/:customerId",
+  CustomerControllers.deleteSingleCustomer
+);
+
 export const CustomerRoutes = customerRouter;

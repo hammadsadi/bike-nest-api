@@ -46,9 +46,27 @@ const updateSingleCustomerFromDB = async (
   return result;
 };
 
+// Delete Customer
+const deleteCustomerFromDB = async (customerId: string) => {
+  await prisma.customer.findUniqueOrThrow({
+    where: {
+      customerId: customerId,
+    },
+  });
+
+  //  Delete Customer
+  const result = await prisma.customer.delete({
+    where: {
+      customerId,
+    },
+  });
+  return result;
+};
+
 export const CustomerServices = {
   customerSaveToDB,
   getAllCustomersFromDB,
   getSingleCustomerFromDB,
   updateSingleCustomerFromDB,
+  deleteCustomerFromDB,
 };

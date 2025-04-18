@@ -31,7 +31,7 @@ model Bike {
   model String
   year Int
   customerId String
-  customer Customer @relation(fields: [customerId], references: [customerId])
+  customer Customer @relation(fields: [customerId], references: [customerId], onDelete: Cascade)
   serviceRecord ServiceRecord[]
 }
 
@@ -40,7 +40,7 @@ model Bike {
 model ServiceRecord {
   serviceId String @id @default(uuid())
   bikeId String
-  bike Bike @relation(fields: [bikeId], references: [bikeId])
+  bike Bike @relation(fields: [bikeId], references: [bikeId], onDelete: Cascade)
   serviceDate DateTime?
   completionDate DateTime? 
   description String
