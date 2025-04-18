@@ -41,7 +41,7 @@ Follow these steps to set up the project locally:
 yarn install
 ```
 
-3. **Create a .env file in the root directory and configure the following environment variables**
+3. **Create a `.env` file in the root directory and configure the following environment variables**
 
 ```bash
 
