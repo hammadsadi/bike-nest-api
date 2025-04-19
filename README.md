@@ -1,4 +1,4 @@
-## :bike: BikeNest - Bike Servicing Management API Overview
+## :bike: BikeNest - Bike Servicing Management API Summary
 
 The BikeNest Servicing Management System is a RESTful backend API designed to help bike servicing centers efficiently manage their operations. It enables easy handling of customer data, bike information, and service records through structured and scalable endpoints.
 
@@ -49,7 +49,7 @@ yarn install
 
 ```
 
-4. **Start the Client**
+4. **Start the Server**
 
 ```bash
  yarn dev

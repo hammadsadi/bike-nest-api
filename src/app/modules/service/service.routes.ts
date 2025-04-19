@@ -12,7 +12,10 @@ serviceRecordRouter.get(
   "/services",
   ServiceRecordedControllers.getAllServicesRecord
 );
-
+serviceRecordRouter.get(
+  "/services/status",
+  ServiceRecordedControllers.getOverdueServicesServicesRecord
+);
 serviceRecordRouter.get(
   "/services/:serviceId",
   ServiceRecordedControllers.getSingleServicesRecord
@@ -21,4 +24,5 @@ serviceRecordRouter.put(
   "/services/:serviceId/complete",
   ServiceRecordedControllers.updateSingleServicesRecord
 );
+
 export const ServiceRecordedRoutes = serviceRecordRouter;

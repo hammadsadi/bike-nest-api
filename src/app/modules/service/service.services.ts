@@ -43,9 +43,26 @@ const updateSingleServiceRecord = async (
   return result;
 };
 
+//  Overdue Services
+const overdueServiceDataGetFromDB = async () => {
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  const result = await prisma.serviceRecord.findMany({
+    where: {
+      status: {
+        in: ["pending", "inProgress"],
+      },
+      serviceDate: {
+        lt: sevenDaysAgo,
+      },
+    },
+  });
+  return result;
+};
 export const ServiceRecorded = {
   serviceSaveToDB,
   getAllServiceRecord,
   getSingleServiceRecord,
   updateSingleServiceRecord,
+  overdueServiceDataGetFromDB,
 };
